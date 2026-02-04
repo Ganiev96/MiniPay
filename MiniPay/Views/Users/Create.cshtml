@@ -1,0 +1,13 @@
+﻿@model MiniPay.Models.User
+<h2>Create User</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label class="form-label">Full Name</label>
+        <input asp-for="FullName" class="form-control"/>
+
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+
+</form>

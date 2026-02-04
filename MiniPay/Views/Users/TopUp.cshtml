@@ -1,0 +1,28 @@
+﻿@model int
+
+<div class="container mt-5" style="max-width:400px">
+
+    <div class="card shadow">
+
+        <div class="card-body">
+
+            <h4 class="mb-3 text-center">Top Up Balance</h4>
+
+            <form asp-action="TopUp" method="post">
+
+                <input type="hidden" name="userId" value="@Model" />
+
+                <div class="mb-3">
+                    <label>Amount</label>
+                    <input name="amount" type="number" step="0.01" class="form-control" required />
+                </div>
+
+                <button class="btn btn-success w-100">Add</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

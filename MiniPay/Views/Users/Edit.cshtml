@@ -1,0 +1,10 @@
+﻿@model MiniPay.Models.User
+<h2>Edit User</h2>
+<form asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label>Full Name</label>
+        <input asp-for="FullName" class="form-control" />
+    </div>
+    <button class="btn btn-success">Save</button>
+</form>

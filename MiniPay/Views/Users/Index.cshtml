@@ -1,0 +1,48 @@
+﻿@model List<MiniPay.Models.User>
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+<h2 class="mb-4">MiniPay Users</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">➕ Add User</a>
+
+<div class="row">
+
+    @foreach (var u in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm">
+
+                <div class="card-body">
+
+                    <h5 class="card-title">@u.FullName</h5>
+
+                    <p class="card-text">
+                        💰 Balance: <strong>@u.Balance</strong>
+                        <a asp-action="Transfer" asp-route-id="@u.Id" class=" btn btn-secondary btn-sm">Transfer</a>
+                    </p>
+
+                    <div class="d-flex gap-1 flex-wrap">
+
+                        <a asp-action="TopUp" asp-route-id="@u.Id" class="btn btn-success btn-sm">TopUp</a>
+
+                        <a asp-action="Withdraw" asp-route-id="@u.Id" class="btn btn-dark btn-sm">Withdraw</a>
+
+                        <a asp-action="Transactions" asp-route-id="@u.Id" class="btn btn-info btn-sm">History</a>
+
+                        <a asp-action="Edit" asp-route-id="@u.Id" class="btn btn-warning btn-sm">Edit</a>
+
+                        <a asp-action="Delete" asp-route-id="@u.Id" class="btn btn-danger btn-sm">Delete</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    }
+
+</div>

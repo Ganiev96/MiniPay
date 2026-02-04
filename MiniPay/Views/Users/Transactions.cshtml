@@ -1,0 +1,47 @@
+﻿@model List<MiniPay.Models.Transaction>
+
+<h3 class="mb-4">💳 Transaction History</h3>
+
+<a asp-action="Index" class="btn btn-secondary mb-3">⬅ Back</a>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        No transactions yet.
+    </div>
+}
+else
+{
+    <div class="card shadow">
+
+        <div class="card-body">
+
+            <table class="table table-hover">
+
+                <thead>
+                    <tr>
+                        <th>Amount</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var t in Model)
+                    {
+                        <tr>
+                            <td class="text-success fw-bold">
+                                + @t.Amount
+                            </td>
+                            <td>
+                                @t.CreatedAt.ToString("dd MMM yyyy HH:mm")
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+}

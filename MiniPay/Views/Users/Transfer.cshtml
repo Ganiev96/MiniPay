@@ -1,0 +1,25 @@
+﻿@{
+    var users = ViewBag.Users as List<MiniPay.Models.User>;
+}
+<h3>Transfer</h3>
+<form asp-action="Transfer" method="post">
+    <input type="hidden" name="fromUserId" value="@ViewBag.FromUserId" />
+    <div class="alert alert-info">
+        Your balance: <strong>@ViewBag.SenderBalance</strong>
+    </div>
+    <div class="mb-3">
+        <label>To User</label>
+        <select name="toUserId" class="form-control">
+            @foreach (var u in users)
+            {
+                <option value="@u.Id">@u.FullName</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Amount</label>
+        <input name="Amount" type="number" step="0.01" class="form-control" />
+    </div>
+    <button class="btn btn-primary">Transfer</button>
+</form>
